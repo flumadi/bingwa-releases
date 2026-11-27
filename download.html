@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Bingwa</title>
+  <meta name="description" content="Download the Bingwa app for Android: sell Safaricom bundles automatically from M-PESA payments.">
+  <meta name="theme-color" content="#1E5FD8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <style>
+    :root { color-scheme: light dark; --fg: #1b1f2a; --muted: #5b6475; --bg: #f4f6fa; --card: #ffffff; --line: #dfe4ee; --accent: #1e5fd8; --accent-fg: #ffffff; --warn-bg: #fff4e0; --warn: #8a5300; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #e7eaf0; --muted: #a3abbb; --bg: #10131a; --card: #191d26; --line: #2a303d; --accent: #7aa2ff; --accent-fg: #0b1020; --warn-bg: #2d2412; --warn: #f2c26b; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+    header { display: flex; align-items: center; gap: 12px; }
+    header img { width: 48px; height: 48px; border-radius: 12px; }
+    h1 { font-size: 28px; margin: 0; }
+    h2 { font-size: 19px; margin: 32px 0 8px; }
+    .muted { color: var(--muted); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; margin-top: 20px; }
+    .grid { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+    .btn { display: block; text-align: center; text-decoration: none; font-weight: 700; padding: 14px 18px; border-radius: 14px; background: var(--accent); color: var(--accent-fg); font-size: 17px; }
+    .btn.secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); font-size: 15px; padding: 10px 14px; margin-top: 10px; }
+    .qr { background: #fff; padding: 10px; border-radius: 12px; width: 150px; height: 150px; }
+    .qr img { width: 130px; height: 130px; display: block; }
+    ol { padding-left: 22px; } li { margin: 8px 0; }
+    .note { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 12px 14px; margin-top: 12px; }
+    nav a { color: var(--accent); margin-right: 16px; }
+    #version { font-weight: 600; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } .qr { display: none; } }
+  </style>
+</head>
+<body>
+<main>
+  <nav><a href="./">Web portal</a><a href="privacy.html">Privacy policy</a></nav>
+  <header style="margin-top:16px">
+    <img src="icons/Icon-192.png" alt="">
+    <div>
+      <h1>Download Bingwa</h1>
+      <div class="muted">For Android 8.0 or newer · <span id="version">latest version</span></div>
+    </div>
+  </header>
+
+  <div class="card grid">
+    <div>
+      <a class="btn" id="apk" href="https://github.com/flumadi/bingwa-releases/releases/latest/download/bingwa.apk">Download for Android</a>
+      <a class="btn secondary" id="mirror" href="#" hidden>Other download link (Google Drive)</a>
+      <p class="muted" style="margin:12px 0 0">Works on almost every phone. If the phone says the app is not compatible, use the
+        <a id="apk32" href="https://github.com/flumadi/bingwa-releases/releases/latest/download/bingwa-32bit.apk">older-phone version (32-bit)</a>.
+        Updating? Install over the old app: your data stays.</p>
+    </div>
+    <div class="qr" title="Scan with the phone's camera"><img src="download-qr.svg" alt="QR code for this page"></div>
+  </div>
+
+  <h2>Install it</h2>
+  <ol>
+    <li>Tap <b>Download for Android</b> on the phone that sells (the one with the line's SIM).</li>
+    <li>Open the downloaded file. If Android asks, allow your browser to <b>install unknown apps</b>, then go back and tap <b>Install</b>.</li>
+    <li>If <b>Play Protect</b> warns that the app is unknown, tap <b>More details → Install anyway</b>. Bingwa is not on the Play Store because it reads M-PESA messages and runs USSD for you.</li>
+    <li>Open Bingwa, accept the privacy policy, create your account, and follow <b>More → Go-live check</b>.</li>
+  </ol>
+  <div class="note">Only download Bingwa from this page. A copy from anywhere else could be changed to steal from your M-PESA.</div>
+
+  <h2>Kiswahili</h2>
+  <ol lang="sw">
+    <li>Gusa <b>Download for Android</b> kwenye simu inayouza (yenye SIM ya laini).</li>
+    <li>Fungua faili. Android ikiuliza, ruhusu kivinjari <b>kusakinisha programu zisizojulikana</b>, rudi na ugusa <b>Install</b>.</li>
+    <li><b>Play Protect</b> ikionya, gusa <b>More details → Install anyway</b>.</li>
+    <li>Fungua Bingwa, kubali sera ya faragha, fungua akaunti, kisha fuata <b>Zaidi → Ukaguzi wa kuanza</b>.</li>
+  </ol>
+
+  <h2>Watch your phones from a computer or iPhone</h2>
+  <p>Open the <a href="./">web portal</a> in any browser and sign in with the same account. On an iPhone, tap <b>Share → Add to Home Screen</b> to keep it like an app.</p>
+</main>
+<script>
+  // Version and the optional mirror come from latest.json, published with this page.
+  fetch('latest.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      if (!j) return;
+      var when = j.published ? new Date(j.published).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+      document.getElementById('version').textContent = 'version ' + j.version + (when ? ' · ' + when : '');
+      if (j.apk) document.getElementById('apk').href = j.apk;
+      if (j.apk32) document.getElementById('apk32').href = j.apk32;
+      if (j.mirror) { var m = document.getElementById('mirror'); m.href = j.mirror; m.hidden = false; }
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>
